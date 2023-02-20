@@ -1,7 +1,8 @@
-import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { Sidebar, Menu, MenuItem, ProSidebarProvider } from 'react-pro-sidebar';
 import { FaHome, FaAddressCard } from 'react-icons/fa';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { MdOutlineContactPage } from 'react-icons/md';
+import Button from 'react-bootstrap/Button';
 import '../App.css';
 
 const themes = {
@@ -26,17 +27,17 @@ const themes = {
 
 export default function SideNav() {
     return (
+      <ProSidebarProvider>
         <Sidebar
-        style={{color: '#8BA1B7', height: '100vh'}}
+        style={{color: '#8BA1B7', height: '100vh', float: 'left'}}
         width='350px'
         image='https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg'
-        backgroundColor='rgb(249, 249, 249, 0.1)'
+        color='#0B2745'
+        backgroundColor='rgb(11, 39, 69, 0.9)'
         
-        color='#8BA1B7'
+        
         >
-        <p style={{fontWeight: "700", fontSize: "40px", color: "#0098e5", textAlign: 'center'}}>
-        Soroush <br></br> Khammar
-        </p>
+        <img src='sk.png' alt='SKLogo' width='180px' style={{marginLeft: '75px', marginTop: '20px', marginBottom: '20px'}}/>
         <Menu
         menuItemStyles={{
             button: ({ level }) => {
@@ -53,12 +54,30 @@ export default function SideNav() {
             },
         }}
         >   
-            <MenuItem icon=<FaHome />> Home </MenuItem>
-            <MenuItem icon=<AiOutlineFundProjectionScreen />> Projects </MenuItem>
-            <MenuItem icon=<MdOutlineContactPage />> Resume </MenuItem>
-            <MenuItem icon=<FaAddressCard />> Contact </MenuItem>
+         <MenuItem icon=<FaHome />> About </MenuItem>
+         <MenuItem icon=<AiOutlineFundProjectionScreen />> Projects </MenuItem>
+         <MenuItem icon=<MdOutlineContactPage />> Resume </MenuItem>
+         <MenuItem icon=<FaAddressCard />> Contact </MenuItem>
+
         </Menu>
-        
+        <div className='nav-footer'>
+          <div className='git-card'>
+            <div>
+              <img src='/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
+            </div>
+            <p style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</p>
+            <div style={{marginTop: '12px'}}>
+              <Button href="https://github.com/SoroKha/portfolio" target="_blank" variant="light">
+              View Code
+              </Button>
+            </div>
+          </div>
+          <div className='credits' style={{textAlign: 'center', paddingTop: '50px'}}>
+            <p>Built by Soroush using React</p>
+          </div>
+        </div>
+
         </Sidebar>
+        </ProSidebarProvider>
     );
 }

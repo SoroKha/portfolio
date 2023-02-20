@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ProSidebarProvider } from 'react-pro-sidebar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
+const RECAPTCHA_CLIENT_KEY = process.env.REACT_APP_RECAPTCHA_CLIENT_KEY;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProSidebarProvider>
-      <App />
-    </ProSidebarProvider>
-    
+  <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_CLIENT_KEY}>
+      <App />  
+  </GoogleReCaptchaProvider>
   </React.StrictMode>
 );
 
