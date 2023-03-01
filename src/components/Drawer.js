@@ -1,20 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
@@ -23,6 +10,8 @@ import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+
+import {useLocation} from 'react-router-dom';
 
 const drawerWidth = 330;
 
@@ -40,18 +29,27 @@ function ResponsiveDrawer(props) {
     { text: "Contact", icon: <AddIcCallIcon />, route: '/contact' },
 
   ];
+
+  const currentRoute = (route) => {
+    return itemslist.map((item) => {
+      if (item.route === route.pathname) return item.text;
+    })};
+  
   const drawer = (
     <div>
-      <Toolbar></Toolbar>
+      <Toolbar style={{flexDirection: 'column'}}>
+        <img src='/icons/sk.png' alt='logo' width='200px'/>
+       </Toolbar> 
+      
       <Divider />
       <List>
         {itemslist.map((item, index) => {
           const { text, icon, route } = item;
           return (
-            <ListItem style={{color: '#000000DE'}} key={text} component={Link} to={route} disablePadding>
+            <ListItem style={{color: '#000000DE', marginBottom: '20px'}} key={text} component={Link} to={route} disablePadding>
               <ListItemButton>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primaryTypographyProps={{fontSize: '20px'}}   primary={text} />
               </ListItemButton>  
             </ListItem>
           );
@@ -60,11 +58,11 @@ function ResponsiveDrawer(props) {
       <Divider />
       <Toolbar style={{justifyContent: 'space-evenly'}}>
         <a href='https://linkedin.com' target="_blank" rel="noreferrer">
-          <img src='linkedin.png' alt='linkedin' width='55px'/>
+          <img src='/icons/linkedin.png' alt='linkedin' width='55px'/>
         </a>
       
         <a href='https://github.com/SoroKha' target="_blank" rel="noreferrer">
-          <img src='githubicon.png' alt='github' width='55px' />
+          <img src='/icons/githubicon.png' alt='github' width='55px' />
         </a>
       </Toolbar>
     </div>
@@ -72,6 +70,7 @@ function ResponsiveDrawer(props) {
 
 
   const container = window !== undefined ? () => window().document.body : undefined;
+  const location = useLocation();
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -83,7 +82,8 @@ function ResponsiveDrawer(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar style={{backgroundColor: '#010C80'}}>
+  
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -94,14 +94,13 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            
+          {currentRoute(location)}
           </Typography>
         </Toolbar>
       </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
@@ -121,7 +120,7 @@ function ResponsiveDrawer(props) {
           <div style={{paddingTop: '150px'}}>
           <div className='git-card'>
             <div>
-              <img src='/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
+              <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
             </div>
             <p style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</p>
             <div style={{marginTop: '12px'}}>
@@ -131,7 +130,7 @@ function ResponsiveDrawer(props) {
             </div>
           </div>
           <div className='credits' style={{textAlign: 'center', paddingTop: '50px'}}>
-            <p>Built by Soroush using React</p>
+            <Typography variant='overline'>Built by Soroush using React</Typography>
           </div>
         </div>
         </Drawer>
@@ -144,10 +143,10 @@ function ResponsiveDrawer(props) {
           open
         >
           {drawer}
-          <div style={{paddingTop: '320px'}}>
+          <div style={{paddingTop: '200px'}}>
           <div className='git-card'>
             <div>
-              <img src='/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
+              <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
             </div>
             <p style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</p>
             <div style={{marginTop: '12px'}}>
@@ -156,8 +155,8 @@ function ResponsiveDrawer(props) {
               </Button>
             </div>
           </div>
-          <div className='credits' style={{textAlign: 'center', paddingTop: '50px'}}>
-            <p>Built by Soroush using React</p>
+          <div className='credits' style={{textAlign: 'center', paddingTop: '20px'}}>
+            <Typography variant='overline'>Built by Soroush using React</Typography>
           </div>
         </div>
         </Drawer>

@@ -4,6 +4,8 @@ import { Grid, TextField, Button, Card, CardContent, Typography, Box, Container 
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
+import FadeIn from 'react-fade-in';
+
 
 const drawerWidth = 330;
 
@@ -47,7 +49,7 @@ export default function Contact() {
     return (
     <>
     <GoogleReCaptcha onVerify={captcha} />
-
+    <FadeIn delay={100}>
     <Box
         component="main"
         sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
@@ -89,6 +91,7 @@ export default function Contact() {
       </Grid>
       </Container>
       </Box>
+      </FadeIn>
     </>
   );
 }

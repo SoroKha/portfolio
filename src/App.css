@@ -15,9 +15,6 @@
     padding-top: 530px;
 }
 
-.App {
-  
-}
 
 .About {
     display: flex;
@@ -35,3 +32,16 @@
     position:inherit;
     margin-left: 330px;
   }
+
+.imageCaption {
+    position: absolute;
+    color: white;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: #0F0F0F;
+    width: 100%;
+    opacity: .8;
+    text-align: center;
+}
