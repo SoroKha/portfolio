@@ -1,22 +1,24 @@
 import '../App.css';
-
 import { Container, Card, CardContent, Box, Grid, Typography } from '@mui/material';
 import FadeIn from 'react-fade-in';
-
+import React from 'react';
 
 const drawerWidth = 330;
 
 export default function About() {
+  const [scroll, setScroll] = React.useState('hidden');
+
   return (
-    <>
-    <FadeIn delay={100}>
+    <div style={{overflowY: scroll}}>
+    <FadeIn delay={100} onComplete={() => setScroll('hidden')}>
     <Box
+        className='background'
         component="main"
-        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: '100vh' }}
       >
       <Container sx={{ py: 4, float: 'center', paddingTop: '75px' }} maxWidth="lg">
         <Typography variant='h2' gutterBottom>Hi, I'm Soroush! &#128075;</Typography>
-        <Typography variant='h6' gutterBottom>I'm a recent graduate and aspiring Web Developer, seeking to contribute to exciting projects.</Typography>
+        <Typography variant='h6' gutterBottom>I'm a recent graduate and aspiring Web Developer, excited to contribute to new projects.</Typography>
         <Typography variant='body1' gutterBottom>
         I decided to follow this career path during my university capstone project, where I was assigned to iAMconnected, an online health analytics dashboard.
         It was super exciting to finally work on a real-world project and I learned a ton during the experience, thanks to our senior developers and their guidance.          
@@ -101,6 +103,6 @@ export default function About() {
         </Container>
       </Box>
       </FadeIn>
-    </> 
+    </div> 
   );
 }

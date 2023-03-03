@@ -114,10 +114,11 @@ function ResponsiveDrawer(props) {
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            position: 'relative'
           }}
         >
           {drawer}
-          <div style={{paddingTop: '150px'}}>
+          <div style={{position: 'absolute', bottom: '50px', width: '100%'}}>
           <div className='git-card'>
             <div>
               <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
@@ -129,7 +130,7 @@ function ResponsiveDrawer(props) {
               </Button>
             </div>
           </div>
-          <div className='credits' style={{textAlign: 'center', paddingTop: '50px'}}>
+          <div className='credits' style={{textAlign: 'center'}}>
             <Typography variant='overline'>Built by Soroush using React</Typography>
           </div>
         </div>
@@ -139,11 +140,12 @@ function ResponsiveDrawer(props) {
           sx={{
             display: { xs: 'none', sm: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            position: 'relative'
           }}
           open
         >
           {drawer}
-          <div style={{paddingTop: '200px'}}>
+          <div style={{position: 'absolute', bottom: '50px', width: '100%'}}>
           <div className='git-card'>
             <div>
               <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>

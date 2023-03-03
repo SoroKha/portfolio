@@ -51,8 +51,9 @@ export default function Contact() {
     <GoogleReCaptcha onVerify={captcha} />
     <FadeIn delay={100}>
     <Box
+        className='background'
         component="main"
-        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: '100vh' }}
       >
       <Container sx={{ py: 4, float: 'center', paddingTop: '75px' }} maxWidth="md">
       <div id='swal'></div>
