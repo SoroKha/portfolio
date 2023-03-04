@@ -6,9 +6,7 @@ import Swal from 'sweetalert2';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import FadeIn from 'react-fade-in';
 
-
 const drawerWidth = 330;
-
 const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
 const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
@@ -16,6 +14,7 @@ const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 export default function Contact() {
     const form = useRef();
     const [verified, setVerified] = useState(false);
+    const [scroll, setScroll] = React.useState('hidden');
 
     function captcha() {
         setVerified(true);
@@ -45,11 +44,10 @@ export default function Contact() {
         e.target.reset()
       };
     
-    
     return (
-    <>
+    <div style={{overflowY: scroll}}>
     <GoogleReCaptcha onVerify={captcha} />
-    <FadeIn delay={100}>
+    <FadeIn delay={100} onComplete={() => setScroll('auto')}>
     <Box
         className='background'
         component="main"
@@ -93,7 +91,7 @@ export default function Contact() {
       </Container>
       </Box>
       </FadeIn>
-    </>
+    </div>
   );
 }
 

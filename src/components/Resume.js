@@ -1,15 +1,14 @@
 import { Box, Container } from '@mui/material';
 import FadeIn from 'react-fade-in';
-import React from 'react';
-
+import { useState } from 'react';
 
 const drawerWidth = 330;
 
 export default function Resume() {
-    const [scroll, setScroll] = React.useState('hidden');
+    const [scroll, setScroll] = useState('hidden');
     return (
         <div style={{overflowY: scroll}}>
-        <FadeIn delay={100}  onComplete={() => setScroll('scroll')}>
+        <FadeIn delay={100}  onComplete={() => setScroll('auto')}>
         <Box
         className='background'
         component="main"

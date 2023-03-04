@@ -1,87 +1,37 @@
 import Carousel from 'react-material-ui-carousel'
 import { Box, Button, Container, Card, Typography, CardContent } from '@mui/material'
-import React from 'react';
+import { useState } from 'react';
 import FadeIn from 'react-fade-in';
 import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
-
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { IAMC, portfolio } from '../data/projectData';
+import {
+    ReactIcon,
+    VueIcon,
+    TSIcon,
+    JSIcon,
+    DotNetIcon,
+    PostgresIcon,
+    PHPIcon,
+    MySQLIcon
+} from '../data/iconsData';
 
 const drawerWidth = 330;
 
 export default function Projects() {
-    const [open, setOpen] = React.useState(false);
-    const [index, setIndex] = React.useState(0);
-
-    var IAMC = [
-        {
-            name: "iamc5",
-            src: "projects/iamc5.png",
-            parent: 'IAMC',
-            caption: '',
-            index: 0,
-        },
-        {
-            name: "iamc1",
-            src: "projects/iamc1.png",
-            parent: 'IAMC',
-            caption: 'Challenge page contains sortable leaderboard and chatroom with Discord-like threads - users are sent email notifications for unread messages',
-            index: 1,
-        },
-        {
-            name: "iamc2",
-            src: "projects/iamc2.png",
-            parent: 'IAMC',
-            caption: 'Profile picture functionality implemented using Vue Croppie',
-            index: 2
-        },
-        {
-            name: "iamc3",
-            src: "projects/iamc3.png",
-            parent: 'IAMC',
-            caption: 'Configured subscription plans using Stripe hooks, which are validated through their API',
-            index: 3
-        },
-        {
-            name: "iamc4",
-            src: "projects/iamc4.png",
-            parent: 'IAMC',
-            caption: 'Meditation course records time spent listening and adds it to the users meditation log upon pausing/completing the MP3',
-            index: 4
-        },
-    ]
-
-    var portfolio = [
-        {
-            name: "portfolio1",
-            src: "projects/portfolio1.png",
-            parent: 'portfolio',
-            caption: '',
-            index: 0,
-        },
-        {
-            name: "portfolio2",
-            src: "projects/portfolio2.png",
-            parent: 'portfolio',
-            caption: 'Challenge page contains sortable leaderboard and chatroom with Discord-like threads - users are sent email notifications for unread messages',
-            index: 1,
-        },
-        {
-            name: "portfolio3",
-            src: "projects/portfolio3.png",
-            parent: 'portfolio',
-            caption: 'Challenge page contains sortable leaderboard and chatroom with Discord-like threads - users are sent email notifications for unread messages',
-            index: 2,
-        },
-    ]
-
-    const [slides, setSlides] = React.useState([]);
+    const [open, setOpen] = useState(false);
+    const [index, setIndex] = useState(0);
+    const [slides, setSlides] = useState([]);
 
     function initLightbox(index, itemSlides) {
-        setSlides(eval(itemSlides));
+        if (itemSlides === 'IAMC') itemSlides = IAMC;
+        if (itemSlides === 'portfolio') itemSlides = portfolio;
+        setSlides(itemSlides);
         setIndex(index);
         setOpen(true);
     }
-
 
     function Item(props)
     {
@@ -96,15 +46,16 @@ export default function Projects() {
     }
     return (     
         <div>
-        <FadeIn delay={100}>
         <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={slides}
-        carousel={{finite: true, preload: 3}}
-        animation={{swipe: 200}}
+        carousel={{finite: true}}
+        animation={{swipe: 300}}
         index={index}
+        plugins={[Thumbnails]}
         />
+        <FadeIn delay={100}>
         <Box
         className='background'
         component="main"
@@ -128,10 +79,8 @@ export default function Projects() {
                     </div>
                     
                     <CardContent>
-                    <img src='icons/vue_icon.png' title='Vue' alt='Vue' style={{paddingRight: '10px'}} />
-                    <img src='icons/ts_icon.png' title='TypeScript' alt='TypeScript' style={{paddingRight: '10px'}} />
-                    <img src='icons/php_icon.png' title='PHP' alt='PHP' style={{paddingRight: '10px'}} />
-                    <img src='icons/mysql_icon.png' title='MySQL' alt='MySQL' style={{paddingRight: '10px'}} />
+                    <VueIcon /><TSIcon /><PHPIcon /><MySQLIcon />
+
                     <Typography gutterBottom variant="h5" component="div">
                         iAMconnected
                         <Button variant="outlined" href="https://app.iamconnected.com" target="_blank" underline="none" sx={{marginLeft: '10px', float: 'right'}}>
@@ -160,14 +109,11 @@ export default function Projects() {
                     </Carousel>
                 </div>
                     <CardContent>
-                    <img src='icons/react_icon.png' title='React' alt='React' style={{paddingRight: '10px'}} />
-                    <img src='icons/ts_icon.png' title='TypeScript' alt='TypeScript' style={{paddingRight: '10px'}} />
-                    <img src='icons/dotnet_icon.png' title='.Net' alt='.Net' style={{paddingRight: '10px'}} />
-                    <img src='icons/postgres_icon.png' title='Postgres' alt='Postgres' style={{paddingRight: '10px'}} />
+                    <ReactIcon /><TSIcon /><DotNetIcon /><PostgresIcon />
                     
                     <Typography gutterBottom variant="h5" component="div">
                         ReStore eCommerce (WIP)
-                        <Button variant="outlined" href="#" underline="none" target="_blank" sx={{float: 'right'}}>
+                        <Button variant="outlined" href="https://github.com/SoroKha/ReStore" underline="none" target="_blank" sx={{float: 'right'}}>
                         GitHub
                         </Button>           
                     </Typography> 
@@ -197,12 +143,11 @@ export default function Projects() {
                 </div>
                     <CardContent>
 
-                    <img src='icons/react_icon.png' title='React' alt='React' style={{paddingRight: '10px'}} />
-                    <img src='icons/js_icon.png' title='JavaScript' alt='JavaScript' style={{paddingRight: '10px'}} />
+                    <ReactIcon /><JSIcon />
 
                     <Typography gutterBottom variant="h5" component="div">
                         Portfolio
-                        <Button variant="outlined" href="#" underline="none" target="_blank" sx={{float: 'right'}}>
+                        <Button variant="outlined" href="https://github.com/SoroKha/portfolio" underline="none" target="_blank" sx={{float: 'right'}}>
                         GitHub
                         </Button> 
                     </Typography>
