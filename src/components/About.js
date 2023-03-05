@@ -12,12 +12,11 @@ export default function About() {
     <div style={{overflowY: scroll}}>
     <FadeIn delay={100} onComplete={() => setScroll('auto')}>
     <Box
-        className='background'
         component="main"
-        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: '100vh' }}
+        sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }}}
       >
       <Container sx={{ py: 4, float: 'center', paddingTop: '75px' }} maxWidth="lg">
-        <Typography variant='h2' gutterBottom>Hi, I'm Soroush! &#128075;</Typography>
+        <Typography variant='h2' fontWeight="fontWeightBold" gutterBottom>Hi, I'm Soroush! &#128075;</Typography>
         <Typography variant='h6' gutterBottom>I'm a recent graduate and aspiring Web Developer, excited to contribute to new projects.</Typography>
         <Typography variant='body1' gutterBottom>
         I decided to follow this career path during my university capstone project, where I was assigned to iAMconnected, an online health analytics dashboard.
@@ -77,7 +76,7 @@ export default function About() {
                   </Typography>
                   <hr></hr>
                   <Typography variant="body1">
-                    Stripe <br></br> YouTube <br></br>  <br></br>  <br></br> 
+                    Stripe <br></br> YouTube <br></br> Fitbit <br></br> Oura <br></br> 
                   </Typography>
                 </CardContent>
               </Card>

@@ -49,7 +49,6 @@ export default function Contact() {
     <GoogleReCaptcha onVerify={captcha} />
     <FadeIn delay={100} onComplete={() => setScroll('auto')}>
     <Box
-        className='background'
         component="main"
         sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: '100vh' }}
       >

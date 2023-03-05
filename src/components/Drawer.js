@@ -13,7 +13,7 @@ import {useLocation} from 'react-router-dom';
 
 const drawerWidth = 330;
 
-function ResponsiveDrawer(props) {
+export default function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -26,8 +26,7 @@ function ResponsiveDrawer(props) {
     { text: "Resume", icon: <ContactPageOutlinedIcon />, route: '/resume' },
     { text: "Contact", icon: <AddIcCallIcon />, route: '/contact' },
     { text: "GitHub", icon: <GitHubIcon />, route: 'https://github.com/SoroKha', target: '_blank', extraIcon: <OpenInBrowserIcon /> },
-    { text: "LinkedIn", icon: <LinkedInIcon />, route: 'https://linkedin.com', target: '_blank', extraIcon: <OpenInBrowserIcon /> },
-
+    { text: "LinkedIn", icon: <LinkedInIcon />, route: 'https://www.linkedin.com/in/soroushkhammar/', target: '_blank', extraIcon: <OpenInBrowserIcon /> },
   ];
 
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -35,7 +34,7 @@ function ResponsiveDrawer(props) {
 
   const currentRoute = (route) => {
     return itemslist.map((item) => {
-      if (item.route === route.pathname) return item.text;
+      if (item.route === route.pathname || (item.route + '/') === route.pathname) return item.text;
       return null;
     })};
   
@@ -62,20 +61,20 @@ function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <Toolbar>
-      <div style={{width: '100%', paddingTop: '40%'}}>
+      <div style={{width: '100%', paddingTop: '20%'}}>
           <div className='git-card'>
             <div>
-              <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '12px'}}/>
+              <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '24px'}}/>
             </div>
-            <p style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</p>
-            <div style={{marginTop: '12px'}}>
+            <Typography style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</Typography>
+            <div>
               <Button href="https://github.com/SoroKha/portfolio" target="_blank" variant="light">
               <Typography style={{color: 'white'}}>View Code</Typography> 
               </Button>
             </div>
           </div>
           <div className='credits' style={{textAlign: 'center', paddingTop: '20px'}}>
-            <Typography variant='overline'>Built by Soroush using React</Typography>
+            <Typography variant='overline' sx={{color: 'grey'}}>Built by Soroush using React</Typography>
           </div>
         </div>
       </Toolbar>
@@ -151,5 +150,3 @@ function ResponsiveDrawer(props) {
     </Box>
   );
 }
-
-export default ResponsiveDrawer;

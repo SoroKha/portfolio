@@ -45,7 +45,7 @@ export default function Projects() {
         )
     }
     return (     
-        <div>
+        <div style={{paddingRight: '0'}}>
         <Lightbox
         open={open}
         close={() => setOpen(false)}
@@ -57,12 +57,11 @@ export default function Projects() {
         />
         <FadeIn delay={100}>
         <Box
-        className='background'
         component="main"
         sx={{ float: 'right', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
             <Container sx={{ py: 4, float: 'center', paddingTop: '75px', display: 'flex', flexDirection: 'column', alignItems: 'center' }} maxWidth="lg">
-                <Typography variant='h4' gutterBottom>Here are some of the projects I've worked on.</Typography>
+                <Typography variant='h3' fontWeight="fontWeightBold" gutterBottom>Here are some of the projects I've worked on.</Typography>
                 <Card sx={{ maxWidth: 1000, marginBottom: '35px' }}>
                     <div style={{position: 'relative', textAlign: 'center'}}>
                       <Carousel
@@ -152,7 +151,7 @@ export default function Projects() {
                         </Button> 
                     </Typography>
                     <Typography variant="body1">
-                        Every web developer needs a portfolio website - I decided to build mine using MaterialUI, a fantastic
+                        Every web developer needs a portfolio website - I decided to build mine from the ground up using MaterialUI, a fantastic
                         component library.
                         I configured the contact form with EmailJS and used Google reCAPTCHA to validate
                         against spam (unnecessary but a good excuse to learn something new).
