@@ -61,18 +61,13 @@ export default function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <Toolbar>
-      <div style={{width: '100%', paddingTop: '20%'}}>
-          <div className='git-card'>
+      <div style={{width: '100%', paddingTop: '20%', textAlign: 'center'}}>
+          <Button className='git-card' href="https://github.com/SoroKha/portfolio" target="_blank" variant="light">
+            {/*<Typography style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</Typography>*/}
             <div>
-              <img src='/icons/github.png' width='35px' color='white' alt='github' style={{marginBottom: '24px'}}/>
-            </div>
-            <Typography style={{color: 'white', fontSize: '20px', lineHeight: '24px', fontWeight: '600', margin: '0px'}}>Portfolio</Typography>
-            <div>
-              <Button href="https://github.com/SoroKha/portfolio" target="_blank" variant="light">
               <Typography style={{color: 'white'}}>View Code</Typography> 
-              </Button>
             </div>
-          </div>
+          </Button>
           <div className='credits' style={{textAlign: 'center', paddingTop: '20px'}}>
             <Typography variant='overline' sx={{color: 'grey'}}>Built by Soroush using React</Typography>
           </div>

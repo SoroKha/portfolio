@@ -35,11 +35,11 @@ export default function About() {
                   <img src='about/frontend.png' alt='FrontEnd' width='171px' style={{padding: '10px'}}/>
                 </div>
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600' component="div">
                     Front End
                   </Typography>
                   <hr></hr>
-                  <Typography variant="body1">
+                  <Typography>
                     Vue <br></br> React <br></br> JavaScript <br></br> TypeScript
                   </Typography>
                 </CardContent>
@@ -53,7 +53,7 @@ export default function About() {
               </div>
               
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600' component="div">
                     Back End
                   </Typography>
                   <hr></hr>
@@ -71,8 +71,8 @@ export default function About() {
               </div>
               
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    APIs
+                  <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600'  component="div">
+                    API
                   </Typography>
                   <hr></hr>
                   <Typography variant="body1">
@@ -88,7 +88,7 @@ export default function About() {
               </div>
               
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600'  component="div">
                     Libraries
                   </Typography>
                   <hr></hr>
