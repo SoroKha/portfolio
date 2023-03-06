@@ -1,10 +1,11 @@
 import '../App.css';
 import React, { useRef, useState } from 'react';
-import { Grid, TextField, Button, Card, CardContent, Typography, Box, Container } from '@mui/material';
+import { Grid, TextField, Button, Card, CardContent, Typography, Box, Container, Alert, Collapse, IconButton } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import FadeIn from 'react-fade-in';
+import CloseIcon from '@mui/icons-material/Close'
 
 const drawerWidth = 330;
 const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
@@ -15,6 +16,8 @@ export default function Contact() {
     const form = useRef();
     const [verified, setVerified] = useState(false);
     const [scroll, setScroll] = React.useState('hidden');
+    const [open, setOpen] = React.useState(false);
+    
 
     function captcha() {
         setVerified(true);
@@ -81,7 +84,35 @@ export default function Contact() {
                 <Grid item xs={12} style={{paddingTop: '10px'}}>
                   <Button disabled={!verified} type="submit" size='large' variant="contained" color="primary" style={{width: '304px'}}>Send Message</Button>
                 </Grid>
-
+                <Grid item xs={12} style={{paddingTop: '10px'}}>
+                <Button
+                  disabled={open}    
+                  onClick={() => {
+                    setOpen(true);
+                  }}
+                 >
+                  Not working?
+                  </Button>
+                  <Collapse in={open}>
+                  <Alert
+                    severity='info'
+                    action={
+                      <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                          setOpen(false);
+                        }}
+                      >
+                        <CloseIcon fontSize="inherit" />
+                      </IconButton>
+                    }
+                  >
+                    Contact me directly at soroushkhammar@gmail.com
+                  </Alert>
+                  </Collapse>
+                </Grid>    
               </Grid>
             </form>
           </CardContent>

@@ -6,7 +6,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { IAMC, portfolio } from '../data/projectData';
+import { IAMC, restore, portfolio } from '../data/projectData';
 import {
     ReactIcon,
     VueIcon,
@@ -28,6 +28,7 @@ export default function Projects() {
     function initLightbox(index, itemSlides) {
         if (itemSlides === 'IAMC') itemSlides = IAMC;
         if (itemSlides === 'portfolio') itemSlides = portfolio;
+        if (itemSlides === 'restore') itemSlides = restore;
         setSlides(itemSlides);
         setIndex(index);
         setOpen(true);
@@ -37,7 +38,7 @@ export default function Projects() {
     {
         return (        
             <a href='#gallery' onClick={() => initLightbox(props.item.index, props.item.parent)}>
-                <img src={props.item.src} alt='carouselImg' height="544px" component="img" loading='lazy'/>
+                <img src={props.item.src} alt='carouselImg' height='544px' component="img" loading='lazy'/>
                 <Typography variant='caption' className='imageCaption'>
                     {props.item.caption}
                 </Typography>  
@@ -69,18 +70,18 @@ export default function Projects() {
                         swipe={false}
                         navButtonsAlwaysVisible='true'
                         animation='fade'
-                        cycleNavigation={false}                      
+                        cycleNavigation={false}                        
                         >
-                            {
-                                IAMC.map( (item, i) => <Item key={i} item={item} /> )
-                            }
+                        {
+                            IAMC.map( (item, i) => <Item key={i} item={item} /> )
+                        }
                         </Carousel>          
                     </div>
                     
                     <CardContent>
                     <VueIcon /><TSIcon /><PHPIcon /><MySQLIcon />
 
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div"  sx={{mt: '10px'}}>
                         iAMconnected
                         <Button variant="outlined" href="https://app.iamconnected.com" target="_blank" underline="none" sx={{marginLeft: '10px', float: 'right'}}>
                         Visit Site
@@ -104,13 +105,15 @@ export default function Projects() {
                     animation='fade'
                     cycleNavigation={false}
                     >
-                        
+                    {
+                        restore.map( (item, i) => <Item key={i} item={item} /> )
+                    }    
                     </Carousel>
                 </div>
                     <CardContent>
                     <ReactIcon /><TSIcon /><DotNetIcon /><PostgresIcon />
                     
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div"  sx={{mt: '10px'}}>
                         ReStore eCommerce (WIP)
                         <Button variant="outlined" href="https://github.com/SoroKha/ReStore" underline="none" target="_blank" sx={{float: 'right'}}>
                         GitHub
@@ -121,7 +124,8 @@ export default function Projects() {
                     <Typography variant="body1">
                         Interested in learning React and .NET, I decided to create a mock eCommerce site. There
                         were a lot of front end and server-side facets to incorporate, which made it very valuable
-                        for learning the intricacies of both tools. 
+                        for learning the intricacies of both tools. The database was mapped and initialised using
+                        Microsoft Entity Framework and user accounts are managed through the .NET Identity API.
                     </Typography>
                     </CardContent>
                 </Card>
@@ -135,17 +139,17 @@ export default function Projects() {
                     animation='fade'
                     cycleNavigation={false}
                     >
-                        {
-                            portfolio.map( (item, i) => <Item key={i} item={item} /> )
-                        }
+                    {
+                        portfolio.map( (item, i) => <Item key={i} item={item} /> )
+                    }
                     </Carousel>
                 </div>
                     <CardContent>
 
                     <ReactIcon /><JSIcon />
 
-                    <Typography gutterBottom variant="h5" component="div">
-                        Portfolio
+                    <Typography gutterBottom variant="h5" component="div" sx={{mt: '10px'}}>
+                        SoroKha
                         <Button variant="outlined" href="https://github.com/SoroKha/portfolio" underline="none" target="_blank" sx={{float: 'right'}}>
                         GitHub
                         </Button> 

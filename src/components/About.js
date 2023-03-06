@@ -19,11 +19,11 @@ export default function About() {
         <Typography variant='h2' fontWeight="fontWeightBold" gutterBottom>Hi, I'm Soroush! &#128075;</Typography>
         <Typography variant='h6' gutterBottom>I'm a recent graduate and aspiring Web Developer, excited to contribute to new projects.</Typography>
         <Typography variant='body1' gutterBottom>
-        I decided to follow this career path during my university capstone project, where I was assigned to iAMconnected, an online health analytics dashboard.
-        It was super exciting to finally work on a real-world project and I learned a ton during the experience, thanks to our senior developers and their guidance.          
+        I began working in this field during my university capstone project, where I was assigned to iAMconnected, an online health analytics dashboard.
+        It was super exciting to work on a real-world project and I learned a ton during the experience, thanks to our senior developers and their guidance.          
         </Typography>
         <Typography variant='body1' gutterBottom>
-        iAMconnected kept me on the team after graduation to work for them as a contractor, which has helped me continue refining my skills in a professional capacity.
+        iAMconnected kept me on the team after graduation to work for them part-time, where I continue to refine my skills in a professional capacity.
         </Typography>
       </Container>
       <Container sx={{ py: 4, float: 'center' }} maxWidth="lg">
@@ -49,7 +49,7 @@ export default function About() {
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 245 }}>
               <div style={{textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
-                <img src='about/backend.png' alt='FrontEnd' width='171px'/>
+                <img src='about/backend.png' alt='BackEnd' width='171px'/>
               </div>
               
                 <CardContent>
@@ -67,16 +67,15 @@ export default function About() {
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 245 }}>
               <div style={{textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
-                <img src='about/api.png' alt='FrontEnd' width='171px' style={{padding: '10px'}}/>
-              </div>
-              
+                <img src='about/library.png' alt='Styling' width='171px' style={{padding: '10px'}}/>
+              </div>         
                 <CardContent>
                   <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600'  component="div">
-                    API
+                    Styling
                   </Typography>
                   <hr></hr>
                   <Typography variant="body1">
-                    Stripe <br></br> YouTube <br></br> Fitbit <br></br> Oura <br></br> 
+                  Bootstrap <br></br> MaterialUI <br></br> Tailwind <br></br> SASS <br></br> 
                   </Typography>
                 </CardContent>
               </Card>
@@ -84,16 +83,15 @@ export default function About() {
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 245 }}>
               <div style={{textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
-                <img src='about/library.png' alt='FrontEnd' width='171px' style={{padding: '10px'}}/>
+                <img src='about/api.png' alt='API' width='171px' style={{padding: '10px'}}/>
               </div>
-              
                 <CardContent>
-                  <Typography sx={{textAlign: 'center'}} variant="button" fontSize='20px' fontWeight='600'  component="div">
-                    Libraries
+                  <Typography sx={{textAlign: 'center', textTransform: 'none'}} variant="button" fontSize='20px' fontWeight='600'  component="div">
+                    APIs
                   </Typography>
                   <hr></hr>
                   <Typography variant="body1">
-                  Bootstrap <br></br> MaterialUI <br></br>  <br></br>  <br></br> 
+                    Stripe <br></br> YouTube <br></br> Fitbit <br></br> Oura <br></br> 
                   </Typography>
                 </CardContent>
               </Card>

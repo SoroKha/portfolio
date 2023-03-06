@@ -59,3 +59,34 @@ export const portfolio = [
         index: 2,
     },
 ]
+
+export const restore = [
+    {
+        name: "restore1",
+        src: "/projects/restore1.png",
+        parent: 'restore',
+        caption: '',
+        index: 0,
+    },
+    {
+        name: "restore2",
+        src: "/projects/restore2.png",
+        parent: 'restore',
+        caption: '',
+        index: 1,
+    },
+    {
+        name: "restore3",
+        src: "/projects/restore3.png",
+        parent: 'restore',
+        caption: '',
+        index: 2,
+    },
+    {
+        name: "restore4",
+        src: "/projects/restore4.png",
+        parent: 'restore',
+        caption: '',
+        index: 3,
+    },
+]

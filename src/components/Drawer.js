@@ -52,7 +52,7 @@ export default function ResponsiveDrawer(props) {
             <ListItem style={{color: '#000000DE', marginBottom: '20px'}} key={text} component={Link} to={route} target={target} disablePadding>
               <ListItemButton>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText disableTypography style={{fontSize: '20px', fontFamily: 'Times'}} primaryTypographyProps={{fontSize: '20px'}}   primary={text}/><ListItemIcon>{extraIcon}</ListItemIcon>
+                <ListItemText disableTypography style={{fontSize: '20px'}} primaryTypographyProps={{fontSize: '20px'}} primary={text}/><ListItemIcon>{extraIcon}</ListItemIcon>
                 
               </ListItemButton>  
             </ListItem>
